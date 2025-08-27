@@ -1,11 +1,3 @@
-import { InventoryStock } from '../entities';
-import { IRequest, IUseCase } from '../interfaces';
+import InventoryStockController from './InventoryStockController';
 
-export default class InventoryStockController {
-	constructor(protected updateInventoryStock: IUseCase<InventoryStock>) {}
-
-	async update(request: IRequest): Promise<Partial<InventoryStock>> {
-		const productId = parseInt(request.params?.productId as string);
-		return this.updateInventoryStock.execute(productId, request.body);
-	}
-}
+export { InventoryStockController };

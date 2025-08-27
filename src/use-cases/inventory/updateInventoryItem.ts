@@ -18,6 +18,8 @@ export default class updateInventoryStock implements IUseCase<InventoryStock> {
 		const item = new InventoryStock(product as InventoryStock);
 		item.decrementStock(payload.quantity);
 
-		return this.inventoryStockRepository.updateStock(productId, payload);
+		return this.inventoryStockRepository.updateStock(productId, {
+			quantity: item.quantity,
+		});
 	}
 }

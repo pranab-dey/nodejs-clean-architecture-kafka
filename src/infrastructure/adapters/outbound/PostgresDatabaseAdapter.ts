@@ -1,12 +1,12 @@
 import { Pool, PoolClient } from 'pg';
-import { DatabaseConfig } from '../../../interfaces/config';
+import { IDatabaseConfig } from '../../../interfaces/config';
 import { SqlDatabasePort, QueryResult } from '../../../ports/outbound';
 
 export default class PostgresDatabaseAdapter implements SqlDatabasePort {
 	private pool: Pool;
-	private config: DatabaseConfig;
+	private config: IDatabaseConfig;
 
-	constructor(config: DatabaseConfig) {
+	constructor(config: IDatabaseConfig) {
 		this.config = config;
 
 		this.pool = new Pool({

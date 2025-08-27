@@ -1,4 +1,4 @@
-export interface DatabaseConfig {
+export interface IDatabaseConfig {
 	host: string;
 	port: number;
 	database: string;
@@ -11,7 +11,7 @@ export interface DatabaseConfig {
 	};
 }
 
-export interface RedisConfig {
+export interface IRedisConfig {
 	host: string;
 	port: number;
 	password?: string;
@@ -19,7 +19,7 @@ export interface RedisConfig {
 	keyPrefix?: string;
 }
 
-export interface KafkaConfig {
+export interface IKafkaConfig {
 	clientId: string;
 	brokers: string[];
 	ssl?: boolean;
@@ -30,13 +30,13 @@ export interface KafkaConfig {
 	};
 }
 
-export interface ServiceConfig {
+export interface IServiceConfig {
 	name: string;
 	port: number;
 	environment: string;
-	database: DatabaseConfig;
-	redis: RedisConfig;
-	kafka: KafkaConfig;
+	database: IDatabaseConfig;
+	redis: IRedisConfig;
+	kafka: IKafkaConfig;
 	jwt: {
 		secret: string;
 		expiresIn: string;

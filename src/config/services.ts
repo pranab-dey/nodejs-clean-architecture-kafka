@@ -1,5 +1,5 @@
 import * as validators from '../infrastructure/validation/joi';
-import { InventoryStockRepository } from '../infrastructure/adapters';
+import { InventoryStockRepository } from '../infrastructure/adapters/repositories';
 
 /**
  *  Structer {
