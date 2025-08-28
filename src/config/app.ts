@@ -3,7 +3,7 @@ import { IServiceConfig } from '../interfaces/config';
 
 dotenv.config();
 
-export function loadAppConfig(): IServiceConfig {
+export default function loadAppConfig(): IServiceConfig {
 	return {
 		name: 'inventory-service',
 		port: Number(process.env.PORT || 3003),

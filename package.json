@@ -20,7 +20,10 @@
 		"pg": "^8.16.3"
 	},
 	"devDependencies": {
+		"@types/cors": "^2.8.19",
 		"@types/express": "^5.0.3",
+		"@types/method-override": "^3.0.0",
+		"@types/morgan": "^1.9.10",
 		"@types/pg": "^8.15.5"
 	}
 }
