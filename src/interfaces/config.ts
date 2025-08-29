@@ -28,6 +28,30 @@ export interface IKafkaConfig {
 		username: string;
 		password: string;
 	};
+	producer: IKafkaProducerConfig;
+	consumer: IKafkaConsumerConfig;
+}
+
+export interface IKafkaProducerConfig {
+	allowAutoTopicCreation: boolean;
+	transactionTimeout: number;
+	maxInFlightRequests: number;
+	idempotent: boolean;
+}
+
+export interface IKafkaConsumerConfig {
+	groupId: string;
+	sessionTimeout: number;
+	heartbeatInterval: number;
+	rebalanceTimeout: number;
+	maxBytesPerPartition: number;
+	retry: {
+		initialRetryTime: number;
+		retries: number;
+		maxRetryTime: number;
+		factor: number;
+		randomize: boolean;
+	};
 }
 
 export interface IServiceConfig {

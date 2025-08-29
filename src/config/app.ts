@@ -38,6 +38,26 @@ export default function loadAppConfig(): IServiceConfig {
 						password: process.env.KAFKA_PASSWORD || '',
 				  }
 				: undefined,
+			producer: {
+				allowAutoTopicCreation: true,
+				transactionTimeout: 30000,
+				maxInFlightRequests: 5,
+				idempotent: true,
+			},
+			consumer: {
+				groupId: `${this.kafka.clientId}-consumer-group`,
+				sessionTimeout: 30000,
+				heartbeatInterval: 3000,
+				rebalanceTimeout: 60000,
+				maxBytesPerPartition: 1048576, // 1MB
+				retry: {
+					initialRetryTime: 100,
+					retries: 8,
+					maxRetryTime: 30000,
+					factor: 0.2,
+					randomize: true,
+				},
+			},
 		},
 		jwt: {
 			secret: process.env.JWT_SECRET_KEY || '',

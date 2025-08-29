@@ -7,17 +7,20 @@
  */
 
 import { IServiceConfig } from '../interfaces/config';
-import { SqlDatabasePort } from '../ports/outbound';
+import { MessageBrokerPort, SqlDatabasePort } from '../ports/outbound';
 import { PostgresDatabaseAdapter } from './adapters/outbound';
+import KafkaAdapter from './adapters/outbound/KafkaAdapter';
 
 export class ResourceProvider {
 	private static instance: ResourceProvider | null = null;
 
 	// Keep references to underlying shared adapters for lifecycle management
 	private readonly db: SqlDatabasePort;
+	private readonly broker: MessageBrokerPort;
 
 	private constructor(config: IServiceConfig) {
 		this.db = new PostgresDatabaseAdapter(config.database);
+		this.broker = new KafkaAdapter(config.kafka);
 	}
 
 	public static init(config: IServiceConfig): ResourceProvider {
