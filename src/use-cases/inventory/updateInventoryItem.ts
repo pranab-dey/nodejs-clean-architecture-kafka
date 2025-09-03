@@ -23,5 +23,3 @@ export default class updateInventoryStock implements IUseCase<InventoryStock> {
 		});
 	}
 }
-
-// jut
